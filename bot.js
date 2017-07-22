@@ -5,9 +5,9 @@ var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
-      botRegex = /^\/cool guy$/;
+      botRegex = /^\Bhagawat$/;
 
-  if(request.text && botRegex.test(request.text)) {
+  if(request.name && botRegex.test(request.name)) {
     this.res.writeHead(200);
     postMessage();
     this.res.end();
@@ -31,7 +31,7 @@ function postMessage() {
 
   body = {
     "bot_id" : botID,
-    "text" : botResponse
+    "text" : ("Also don't kill cows")
   };
 
   console.log('sending ' + botResponse + ' to ' + botID);
